@@ -2,15 +2,15 @@ const utils = require('../src/utils');
 
 describe('db return ohm', () => {
 	test('returns existing Ohm object', async () => {
-		expect(await utils.getOhmById('0')).toBeDefined();
+		expect(await utils.getOhmByTrackingId('1e62adfe')).toBeDefined();
 	});
 
 	test('returns undefined', async () => {
-		expect(await utils.getOhmById('9999')).toBeUndefined();
+		expect(await utils.getOhmByTrackingId('invalid')).toBeUndefined();
 	});
 
 	test('has a valid history', async () => {
-		const ohm = await utils.getOhmById('1');
+		const ohm = await utils.getOhmByTrackingId('1e62adfe');
 		const statusses = await utils.getStatusses();
         const statusCodes = statusses.reduce((arr, possibleNextStatusses) => arr.concat(possibleNextStatusses.map((status) => status.code)), []);
 		const isValidStatus = statusCodes.includes(ohm.history[0].state)
@@ -20,11 +20,11 @@ describe('db return ohm', () => {
 
 describe('db update ohm', () => {
 	test('returns non-updated Ohm object', async () => {
-		expect((await utils.updateOhmStatus('0', 'READY')).status).toEqual('IN_DELIVERY');
+		expect((await utils.updateOhmStatus('1e62adfe', 'READY')).status).toEqual('IN_DELIVERY');
 	});
-	
+
 	test('returns updated Ohm object', async () => {
-		expect((await utils.updateOhmStatus('0', 'DELIVERED')).status).toEqual('DELIVERED');
+		expect((await utils.updateOhmStatus('1e62adfe', 'DELIVERED')).status).toEqual('DELIVERED');
 	});
 });
 

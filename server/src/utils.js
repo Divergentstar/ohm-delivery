@@ -9,10 +9,10 @@ const db = (async () => {
   return _db;
 })()
 
-async function getOhmById(id, _db) {
+async function getOhmByTrackingId(trackingId, _db) {
   _db = _db || await db;
   const ohm = _db.get('ohms')
-      .find({ id })
+      .find({ trackingId: trackingId })
       .value();
 
   if (ohm) {
@@ -22,9 +22,9 @@ async function getOhmById(id, _db) {
   return ohm;
 }
 
-async function updateOhmStatus(id, statusCode, comment) {
+async function updateOhmStatus(trackingId, statusCode, comment) {
   const _db = await db;
-  let ohm = await getOhmById(id, _db);
+  let ohm = await getOhmByTrackingId(trackingId, _db);
 
   if (ohm) {
     const statusses = await getPossibleNextStatusses(ohm.status, _db);
@@ -44,7 +44,7 @@ async function updateOhmStatus(id, statusCode, comment) {
     }
   }
 
-  return getOhmById(id, _db);
+  return getOhmByTrackingId(trackingId, _db);
 }
 
 async function getPossibleNextStatusses(statusCode, _db) {
@@ -62,4 +62,4 @@ async function getStatusses(_db) {
 	return statusses;
 }
 
-module.exports = { getOhmById, updateOhmStatus, getStatusses, getPossibleNextStatusses };
+module.exports = { getOhmByTrackingId, updateOhmStatus, getStatusses, getPossibleNextStatusses };
