@@ -21,12 +21,15 @@
 			    	<p><span ng-if="errorMessage" class="error">{{ errorMessage }}</span></p>
 			    </form>
                 <div ng-if="result" class="result">
-                    <h2>#{{ result.trackingId }}</h2>
+                    <h2 id="trackingId">#{{ result.trackingId }}</h2>
                     <h3>{{ result.status }}</h3>
                     <div ng-if="result.comment">
                         <h4>Comment</h4>
                         <p>{{ result.comment }}</p>
                     </div>
+                    <h4>Client</h4>
+                    <p>{{ result.client.name }}</p>
+                    <p>{{ result.client.address }}</p>
                     <h4>Description</h4>
                     <p>Volts: {{ result.description.volts }}</p>
                     <p>Amperes: {{ result.description.amperes }}</p>

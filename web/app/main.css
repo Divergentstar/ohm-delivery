@@ -40,6 +40,10 @@ p {
     text-align: center;
 }
 
+#trackingId {
+    color: dodgerblue;
+}
+
 table {
     margin-left: auto;
     margin-right: auto;
