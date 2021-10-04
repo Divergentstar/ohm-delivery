@@ -1,4 +1,40 @@
 {
+  "statusses": [
+    [
+      {
+        "code": "CREATED",
+        "commentable": false
+      }
+    ],
+    [
+      {
+        "code": "PREPARING",
+        "commentable": false
+      }
+    ],
+    [
+      {
+        "code": "READY",
+        "commentable": false
+      }
+    ],
+    [
+      {
+        "code": "IN_DELIVERY",
+        "commentable": false
+      }
+    ],
+    [
+      {
+        "code": "DELIVERED",
+        "commentable": false
+      },
+      {
+        "code": "REFUSED",
+        "commentable": true
+      }
+    ]
+  ],
   "ohms": [
     {
       "id": "0",
@@ -35,7 +71,7 @@
     {
       "id": "1",
       "trackingId": "1da15ffe",
-      "status": "CREATED",
+      "status": "PREPARING",
       "comment": null,
       "description": {
         "volts": 12,
@@ -47,12 +83,12 @@
       },
       "history": [
         {
-          "state": "CRAETED",
+          "state": "CREATED",
           "at": "123456789"
         },
         {
           "state": "PREPARING",
-          "at": "123456709"
+          "at": "123456789"
         }
       ]
     }
