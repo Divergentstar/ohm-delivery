@@ -34,3 +34,26 @@ p {
     margin: auto;
     line-height: 2.0;
 }
+
+.result {
+    margin: auto;
+    text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: lightgrey;
+}
+
+th, td {
+    width: 15em;
+}
+
+table, th, td {
+    border: 2px solid lightblue;
+}

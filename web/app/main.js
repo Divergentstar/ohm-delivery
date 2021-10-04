@@ -20,14 +20,17 @@ angular
 			}
 		};
 		$scope.updateStatus = function(status) {
+			console.log('iets');
 			if (this.trackingId) {
 				$http.put(`/ohms/${this.trackingId}/status`, {
 					status: status,
-					comment: this.formData.comment[statusCode]
+					comment: this.formData.comment[status]
 				}).then((result) => {
+					console.log('res');
 					$scope.result = result.data;
 					$scope.errorMessage = '';
 				}, (error) => {
+					console.log('err');
 					$scope.result = null;
 					$scope.errorMessage = NOT_FOUND(error.status, $scope.trackingId);
 				});
