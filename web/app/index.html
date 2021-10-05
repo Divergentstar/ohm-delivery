@@ -15,7 +15,7 @@
         
         <div ng-app="ohm-delivery">
             <div ng-controller="tracking">
-                <form ng-submit="get()">
+                <form ng-submit="getOhmByTrackingId()">
 			    	<p><input id="trackingId" name="trackingId" type="text" ng-model="trackingId" placeholder="Enter your tracking id" required /></p>
 			    	<p><button id="formBtn" type="submit">Submit</button></p>
 			    	<p><span ng-if="errorMessage" class="error">{{ errorMessage }}</span></p>
@@ -50,7 +50,7 @@
                     </table>
                     <div ng-if="result.possibleNextStatusses && result.possibleNextStatusses.length > 0">
                         <h4>Update status</h4>
-                            <form ng-submit="updateStatus(selectedStatus.code)">
+                            <form ng-submit="updateOhmStatus(selectedStatus.code)">
                                 <p>
                                     <label for="status">Choose a status:</label>
                                     <select id="status" name="status" ng-model="selectedStatus" ng-options="status as status.code for status in result.possibleNextStatusses"></select>
